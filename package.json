@@ -1,0 +1,13 @@
+{
+  "name": "node-kintone",
+  "version": "0.0.1",
+  "description": "kintone node api",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Safu9",
+  "lisence": "MIT",
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
+  }
+}
