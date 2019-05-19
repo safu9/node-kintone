@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {},
   "author": "Safu9",
-  "lisence": "MIT",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/safu9/node-kintone.git"
+  },
+  "homepage": "https://github.com/safu9/node-kintone",
   "dependencies": {
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
