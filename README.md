@@ -1,2 +1,58 @@
 # node-kintone
-kintone node api
+simple kintone rest api
+
+## Install
+```bash
+npm install node-kintone
+```
+
+## Usage
+Basically the same as [kintone javascript api](https://developer.cybozu.io/hc/ja/articles/202166310).
+
+### Authorization
+```js
+const kintone = require('node-kintone')
+
+kintone.setSubdomain('example')
+
+kintone.setApiToken('token')
+kintone.setAuthorization('username', 'password')
+kintone.setBasicAuthorization('username', 'password')
+```
+
+### Send request
+```js
+kintone.api('/k/v1/record', 'GET', { app: 1, id: 1 }).then((res) => {
+	console.log(res)
+}).catch((err) => {
+	console.log(err)
+})
+```
+Callback is not supported for now.
+
+### Get API endpoint
+```js
+kintone.api.url('/k/v1/record')
+kintone.api.urlForGet('/k/v1/record', { app: 1, id: 1 })
+```
+Guest space is not supportred.
+
+### Proxy
+Not supported.
+
+### Upload file
+```js
+kintone.uploadFile('/path/to/file')
+```
+
+### Bulk get or put
+```js
+kintone.getBulkRecords({ app: 1, query: 'order by date' }).then((records) => {
+	console.log(records)
+})
+
+kintone.putBulkRecords({ app: 1, records: [/*...*/] }).then((records) => {
+	console.log(records)	// list of id and revision
+})
+```
+You can't use limit or offset in the query option.

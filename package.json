@@ -2,15 +2,19 @@
   "name": "node-kintone",
   "version": "0.0.1",
   "description": "kintone node api",
+  "keywords": ["kintone", "rest", "api"],
   "main": "index.js",
-  "scripts": {},
-  "author": "Safu9",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/safu9/node-kintone.git"
+  },  
+  "bugs": {
+    "url" : "https://github.com/safu9/node-kintone/issues"
   },
   "homepage": "https://github.com/safu9/node-kintone",
+  "author": "Safu9 (https://github.com/safu9/)",
+  "license": "MIT",
+  "scripts": {},
   "dependencies": {
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
