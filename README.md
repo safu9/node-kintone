@@ -19,8 +19,8 @@ const kintone = require('node-kintone')
 kintone.setSubdomain('example')
 
 kintone.setApiToken('token')
-kintone.setAuthorization('username', 'password')
-kintone.setBasicAuthorization('username', 'password')
+kintone.setAccount('username', 'password')
+kintone.setBasicAuthentication('username', 'password')
 ```
 
 ### Send request

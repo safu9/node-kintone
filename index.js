@@ -13,16 +13,24 @@ kintone.setSubdomain = (subdomain) => {
   domain = subdomain + '.cybozu.com'
 }
 
-kintone.setAuthorization = (username, password) => {
+kintone.setAccount = (username, password) => {
   headers['X-Cybozu-Authorization'] = Buffer.from(username + ':' + password).toString('base64')
+}
+kintone.setAuthorization = (username, password) => {
+  console.warn('setAuthorization is deprecated and will be removed in v1.0.0')
+  kintone.setAccount(username, password)
 }
 
 kintone.setApiToken = (token) => {
   headers['X-Cybozu-API-Token'] = token
 }
 
-kintone.setBasicAuthorization = (username, password) => {
+kintone.setBasicAuthentication = (username, password) => {
   headers['Authorization'] = 'Basic ' + Buffer.from(username + ':' + password).toString('base64')
+}
+kintone.setBasicAuthorization = (username, password) => {
+  console.warn('setBasicAuthorization is deprecated and will be removed in v1.0.0')
+  kintone.setBasicAuthentication(username, password)
 }
 
 // API
