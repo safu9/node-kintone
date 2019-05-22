@@ -2,7 +2,7 @@ const fs = require('fs')
 const querystring = require('querystring')
 const request = require('request-promise-native')
 
-
+// global variables
 const kintone = {}
 let headers = {}
 let domain = ''
@@ -27,7 +27,7 @@ kintone.setBasicAuthorization = (username, password) => {
 
 // API
 
-kintone.api = (pathOrUrl, method, params, opt_callback, opt_errback) => {
+kintone.api = (pathOrUrl, method, params /*, opt_callback, opt_errback*/) => {
   if (pathOrUrl.startsWith('/k/v1/')) {
     pathOrUrl = kintone.api.url(pathOrUrl)
   }
@@ -38,7 +38,7 @@ kintone.api = (pathOrUrl, method, params, opt_callback, opt_errback) => {
       uri: pathOrUrl,
       qs: params,
       headers: headers,
-      json: true      // JSON response
+      json: true // JSON response
     }
   } else {
     options = {
@@ -46,7 +46,7 @@ kintone.api = (pathOrUrl, method, params, opt_callback, opt_errback) => {
       uri: pathOrUrl,
       body: params,
       headers: headers,
-      json: true      // JSON request
+      json: true // JSON request
     }
   }
 
@@ -58,7 +58,7 @@ kintone.api.url = (path) => {
 }
 
 kintone.api.urlForGet = (path, params) => {
-  return kintone.api.url(url) + '?' + querystring.stringify(params)
+  return kintone.api.url(path) + '?' + querystring.stringify(params)
 }
 
 // File API
@@ -91,10 +91,10 @@ kintone.getBulkRecords = async (params) => {
   let resRecords = []
   let offset = 0
 
-  while (true) {
+  for (;;) {
     let newParams = Object.assign({}, params)
     newParams.query = `${params.query || ''} limit ${getLimit} offset ${offset}`
-    
+
     let res = await kintone.api('/k/v1/records', 'GET', newParams)
     resRecords = resRecords.concat(res.records)
 
@@ -111,7 +111,7 @@ kintone.putBulkRecords = async (params) => {
   let resRecords = []
   let offset = 0
 
-  while (true) {
+  for (;;) {
     let newParams = {
       app: params.app,
       records: params.records.slice(offset, offset + editLimit)
@@ -139,5 +139,5 @@ kintone.mapValues = (record) => {
   return record
 }
 
-
+// export
 module.exports = kintone
