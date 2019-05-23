@@ -27,4 +27,9 @@ jobs:
 
       # run tests!
       - run: yarn lint
-      - run: yarn test
+      - run: yarn coverage
+
+      # report coverage
+      - run: yarn add -D codecov
+      - run: yarn run -s nyc report --reporter=text-lcov > coverage.lcov
+      - run: yarn codecov
