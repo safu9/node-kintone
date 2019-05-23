@@ -33,6 +33,11 @@ kintone.setBasicAuthorization = (username, password) => {
   kintone.setBasicAuthentication(username, password)
 }
 
+kintone.reset = () => {
+  headers = {}
+  domain = ''
+}
+
 // API
 
 kintone.api = (pathOrUrl, method, params /*, opt_callback, opt_errback*/) => {

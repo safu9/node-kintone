@@ -19,7 +19,9 @@
   "author": "Safu9 (https://github.com/safu9/)",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "mocha",
+    "coverage": "nyc mocha"
   },
   "dependencies": {
     "request": "^2.88.0",
@@ -29,6 +31,10 @@
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "mocha": "^6.1.4",
+    "mock-fs": "^4.10.0",
+    "nock": "^10.0.6",
+    "nyc": "^14.1.1",
     "prettier": "^1.17.1"
   }
 }
